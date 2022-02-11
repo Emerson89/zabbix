@@ -11,4 +11,9 @@
     - { regexp: 'Server={{ ipserverused }}', line: 'Server={{ ipserverused }},{{ ipserver }}'}
     - { regexp: 'ServerActive={{ ipserverused }}', line: 'ServerActive={{ ipserverused }},{{ ipserver }}'}
 
+- name: Restart Zabbix-agent
+  systemd:
+    name: zabbix-agent
+    state: restarted
+
     
