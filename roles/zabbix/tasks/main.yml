@@ -1,0 +1,14 @@
+---
+- name: Adicionar IP Server e HostMetadata
+  lineinfile:
+    dest: /etc/zabbix/zabbix_agentd.conf
+    state: present
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backrefs: yes
+  loop:
+    - { regexp: '# HostMetadata=', line: 'HostMetadata={{ metadata }}'}
+    - { regexp: 'Server={{ ipserverused }}', line: 'Server={{ ipserverused }},{{ ipserver }}'}
+    - { regexp: 'ServerActive={{ ipserverused }}', line: 'ServerActive={{ ipserverused }},{{ ipserver }}'}
+
+    

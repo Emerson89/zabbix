@@ -1,0 +1,6 @@
+---
+- name: Inserindo IP e HostMetadata
+  hosts: localhost
+  become: yes
+  roles:
+  - zabbix
