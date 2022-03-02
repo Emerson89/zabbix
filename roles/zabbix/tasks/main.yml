@@ -7,9 +7,9 @@
     line: "{{ item.line }}"
     backrefs: yes
   loop:
-    #- { regexp: '# HostMetadata=', line: 'HostMetadata={{ metadata }}'}
-    - { regexp: 'Server={{ ipserverused }}', line: 'Server={{ ipserverused }},{{ ipserver }}'}
-    - { regexp: 'ServerActive={{ ipserverused }}', line: 'ServerActive={{ ipserverused }},{{ ipserver }}'}
+    - { regexp: '# HostMetadata=', line: 'HostMetadata={{ metadata }}'}
+    - { regexp: 'Server={{ ipserverused }}', line: 'Server={{ ipserver }}'}
+    - { regexp: 'ServerActive={{ ipserverused }}', line: 'ServerActive={{ ipserver }}'}
 
 - name: Restart Zabbix-agent
   systemd:
